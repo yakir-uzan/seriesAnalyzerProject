@@ -8,9 +8,19 @@ namespace seriesAnalyzerProject
 {
     internal class Program
     {
+         
+        //static int[] inputUsers()
+        //{
+        //    string input = Console.ReadLine();
+        //    string 
 
+            
+
+
+        //}
         static void Menu()
         {
+            int[] series = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             bool flag = true;
             while (flag)
             {
@@ -18,54 +28,100 @@ namespace seriesAnalyzerProject
                 string input = Console.ReadLine();
                 switch (input)
                 {
-                    case a:
-                        replaseSeries();
-                        break:
-                    case b:
-                        showSeries();
-                        break:
-                    case c:
-                        reversedSeries();
-                        break:
-                    case d:
-                        sortedSeries();
-                        break:
-                    case e:
-                        showMax();
-                        break:
-                    case f:
-                        showMin();
-                        break:
-                    case g:
-                        showAverage();
-                        break:
-                    case h:
-                        numElement();
-                        break:
-                    case i:
-                        sumSeries();
-                        break:
-                    case j:
-                        exit();
+                    //case "a":
+                    //    replaseSeries();
+                    //    break;
+                    case "b":
+                        showSeries(series);
+                        break;
+                    case "c":
+                        reversedSeries(series);
+                        break;
+                    case "d":
+                        sortedSeries(series);
+                        break;
+                    case "e":
+                        showMax(series);
+                        break;
+                    case "f":
+                        showMin(series);
+                        break;
+                    case "g":
+                        showAverage(series);
+                        break;
+                    case "h":
+                        lenSeries(series);
+                        break;
+                    case "i":
+                        sumSeries(series);
+                        break;
+                    case "j":
                         flag = false;
-                        break:
-                                                              
-                           
-                    
-
-
-
-
-
+                        break;
                 }
 
             }
-
-            
+        }
+        static void showSeries(int[] series)
+        {
+            foreach (int num in series)
+            {
+                Console.Write(num + ",");
+            }
+        }
+        //static int[] replaseSeries()
+        //{
+        //    var[] series = Console.ReadLine()
+        //}
+        static void reversedSeries(int[] series)
+        {
+            int lenSeries = series.Length;
+            for (int i = lenSeries - 1; i >= 0; i--)
+            {
+                Console.Write(series[i] + ",");
+            }
+        }
+        static int[] sortedSeries(int[] series)
+        {
+            int[] sorted = series;
+             Array.Sort(sorted);
+             return sorted;
+        }
+        static int showMax(int[] series)
+        {
+            int [] sorted = sortedSeries(series);
+            return sorted[sorted.Length -1];
+        }
+        static int showMin(int[] series)
+        {
+            int[] sorted = sortedSeries(series);
+            return sorted[0];
+        }
+        static int showAverage(int[] series)
+        {
+            int sun = sumSeries(series);
+            return sun / lenSeries(series);
+        }
+        static int lenSeries(int[] series)
+        {
+            int count = 0;
+            for (int i = 0; i < series.Length; i++)
+                count += 1;
+           return count;
+        }
+        static int sumSeries(int[] series)
+        {
+            int sum = 0;
+            for (int i = 0; i < series.Length; i++)
+                sum += series[i];
+             return sum;
         }
         static void Main(string[] args)
         {
+            
             Menu();
+            Console.WriteLine(",");
+            Console.WriteLine(",");
         }
     }
 }
