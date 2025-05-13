@@ -95,6 +95,7 @@ namespace seriesAnalyzerProject
         {
             int[] sorted = series;
              Array.Sort(sorted);
+             Console.WriteLine(sorted);
              return sorted;
         }
         static void showMax(int[] series)
@@ -105,30 +106,32 @@ namespace seriesAnalyzerProject
         static int showMin(int[] series)
         {
             int[] sorted = sortedSeries(series);
+            Console.WriteLine(sorted[0]);
             return sorted[0];
         }
         static int showAverage(int[] series)
         {
-            int sun = sumSeries(series);
-            return sun / lenSeries(series);
+            int sum = sumSeries(series);
+            return sum / lenSeries(series);
         }
         static int lenSeries(int[] series)
         {
             int count = 0;
             for (int i = 0; i < series.Length; i++)
                 count += 1;
-           return count;
+            Console.WriteLine(count);
+            return count;
         }
         static int sumSeries(int[] series)
         {
             int sum = 0;
             for (int i = 0; i < series.Length; i++)
                 sum += series[i];
-             return sum;
+            Console.WriteLine(sum);
+            return sum;
         }
         static void Main(string[] args)
-        {
-            
+        { 
             Menu();
             Console.WriteLine(",");
             Console.WriteLine(",");
