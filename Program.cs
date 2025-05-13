@@ -8,19 +8,33 @@ namespace seriesAnalyzerProject
 {
     internal class Program
     {
-         
-        //static int[] inputUsers()
-        //{
-        //    string input = Console.ReadLine();
-        //    string 
-
-            
-
-
-        //}
+        static int[] inputUsers()
+        {
+            string[] input;
+            int[] output;
+            bool flag = true;
+            while (true)
+            {
+                flag = true;
+                Console.WriteLine("please enter 3 positive numbers: ");
+                input = Console.ReadLine().Split(' ');
+                output = new int[input.Length];
+                for (int i = 0;i<input.Length;i++)
+                {
+                    if (int.TryParse(input[i], out int x) && x>0 )
+                    {
+                        output[i] = x;
+                    }
+                    else
+                        flag = false;
+                }
+                if (flag && output.Length >=3)
+                    return output;
+            }
+        }
         static void Menu()
         {
-            int[] series = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] series = inputUsers();
             bool flag = true;
             while (flag)
             {
@@ -28,9 +42,9 @@ namespace seriesAnalyzerProject
                 string input = Console.ReadLine();
                 switch (input)
                 {
-                    //case "a":
-                    //    replaseSeries();
-                    //    break;
+                    case "a":
+                        series = inputUsers();
+                        break;
                     case "b":
                         showSeries(series);
                         break;
@@ -69,10 +83,6 @@ namespace seriesAnalyzerProject
                 Console.Write(num + ",");
             }
         }
-        //static int[] replaseSeries()
-        //{
-        //    var[] series = Console.ReadLine()
-        //}
         static void reversedSeries(int[] series)
         {
             int lenSeries = series.Length;
@@ -87,10 +97,10 @@ namespace seriesAnalyzerProject
              Array.Sort(sorted);
              return sorted;
         }
-        static int showMax(int[] series)
+        static void showMax(int[] series)
         {
             int [] sorted = sortedSeries(series);
-            return sorted[sorted.Length -1];
+            Console.WriteLine(sorted[sorted.Length -1]);
         }
         static int showMin(int[] series)
         {
