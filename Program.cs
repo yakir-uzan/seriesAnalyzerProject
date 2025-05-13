@@ -70,6 +70,7 @@ namespace seriesAnalyzerProject
                         sumSeries(series);
                         break;
                     case "j":
+                        exit();
                         flag = false;
                         break;
                 }
@@ -130,6 +131,12 @@ namespace seriesAnalyzerProject
             Console.WriteLine(sum);
             return sum;
         }
+
+        static void exit()
+        {
+            Console.WriteLine("GoodByeee...!");
+        }
+
         static void Main(string[] args)
         { 
             Menu();
